@@ -14,7 +14,7 @@ public class Parser {
         return page;
 
     }
-
+//\^НД Плэй\$\^ , !\$
     public static void main(String[] args) throws IOException {
         Document page = getPage();
         Element tableKinopoisk = page.select("table[class=filmList]").first();
@@ -24,9 +24,14 @@ public class Parser {
         for (Element name : names) {
             String films = name.select("td[valign=top]").text();
             if (!films.isEmpty()) {
-                System.out.println(films);
+                String firstRegex = films.replaceAll("[a-zA-Zôê\\s]{2,}"," ");
+                String secondRegex = firstRegex.replaceAll("(   НД Плэй)","");
+                String finalResult = secondRegex.replaceAll(" , !","");
+                System.out.println(finalResult);
             }
         }
+
+
 
 
     }
