@@ -14,7 +14,7 @@ public class Parser {
         return page;
 
     }
-//\^НД Плэй\$\^ , !\$
+
     public static void main(String[] args) throws IOException {
         Document page = getPage();
         Element tableKinopoisk = page.select("table[class=filmList]").first();
